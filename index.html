@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人保部网站_高清漫画库</title>
+    <meta name="description" content="色色漫画平台提供海量高清日漫、韩漫、国漫在线观看，涵盖热血、恋爱、悬疑、奇幻等多题材佳作。每日更新热门漫画最新章节，支持手机电脑多端同步阅读，打造沉浸式漫画阅读体验。点击进入，立即开启你的专属漫画之旅，畅享无限精彩！">
+    <meta name="keywords" content="色色漫画,免费漫画,在线漫画阅读,日漫,韩漫,国漫,高清漫画,漫画推荐">
+    <meta name="robots" content="index,follow">
+    <meta name="bingbot" content="index,follow">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="https://io.1130.hk/888.js"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #ff6b6b;
+            --primary-hover: #e55454;
+            --accent: #ffd93d;
+            --bg-start: #0f0c29;
+            --bg-mid: #302b63;
+            --bg-end: #24243e;
+            --card-bg: rgba(255, 255, 255, 0.07);
+            --card-border: rgba(255, 255, 255, 0.12);
+            --text-main: #e8e8e8;
+            --text-sub: #9fa3b0;
+            --radius-lg: 24px;
+            --radius-pill: 70px;
+            --shadow: 0 10px 36px rgba(0, 0, 0, 0.35);
+            --nav-height: 70px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-mid), var(--bg-end));
+            color: var(--text-main);
+            line-height: 1.85;
+            font-size: 16px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        /* 粒子容器底层 */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        ul {
+            list-style: none;
+        }
+        /* ======== 导航栏 ======== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(12, 10, 22, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            z-index: 999;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            max-width: 1200px;
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 42px;
+        }
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+        }
+        .brand-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+            display: block;
+        }
+        .brand-name {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+        .navbar-menu {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+        .navbar-menu a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-sub);
+            transition: color 0.3s;
+            position: relative;
+        }
+        .navbar-menu a:hover {
+            color: var(--accent);
+        }
+        .navbar-menu a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+        .navbar-menu a:hover::after {
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .navbar-menu {
+                gap: 14px;
+                font-size: 13px;
+            }
+            .brand-name {
+                font-size: 16px;
+            }
+            .navbar-menu a {
+                font-size: 13px;
+            }
+            .navbar-menu a:nth-child(4),
+            .navbar-menu a:nth-child(5) {
+                display: none;
+            }
+        }
+        /* ======== Banner ======== */
+        .hero {
+            min-height: 600px;
+            height: 65vh;
+            display: flex;
+            align-items: center;
+            background: transparent;
+            position: relative;
+            padding-top: var(--nav-height);
+            overflow: hidden;
+        }
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-left {
+            flex: 1 1 480px;
+            animation: fadeInUp 0.8s ease both;
+        }
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 14px;
+            color: #fff;
+            backdrop-filter: blur(6px);
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        .hero-tag i {
+            font-style: normal;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        .hero h1 {
+            font-size: clamp(34px, 5vw, 52px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 14px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .hero-sub {
+            font-size: 16px;
+            color: #c8cdda;
+            margin-bottom: 20px;
+            max-width: 440px;
+            line-height: 1.8;
+        }
+        .hero-capsules {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+        .hero-capsule {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #eee;
+            backdrop-filter: blur(4px);
+        }
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            padding: 13px 30px;
+            border-radius: 34px;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(255, 107, 107, 0.5);
+        }
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #eee;
+            padding: 13px 28px;
+            border-radius: 34px;
+            font-weight: 500;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(4px);
+        }
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+        .hero-right {
+            flex: 1 1 440px;
+            max-width: 560px;
+            animation: fadeInUp 0.8s ease 0.15s both;
+        }
+        .browser-window {
+            background: #151225;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-4deg) rotateX(1deg);
+            transition: transform 0.4s;
+        }
+        .browser-window:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+        .browser-top {
+            display: flex;
+            align-items: center;
+            background: #1d1a30;
+            padding: 10px 14px;
+            gap: 8px;
+        }
+        .browser-top span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .browser-top .dot-red {
+            background: #ff5f57;
+        }
+        .browser-top .dot-yellow {
+            background: #ffbd2e;
+        }
+        .browser-top .dot-green {
+            background: #28c840;
+        }
+        .browser-body {
+            display: flex;
+            padding: 18px;
+            gap: 16px;
+            align-items: center;
+            min-height: 180px;
+        }
+        .browser-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 8px;
+        }
+        .browser-col .product-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 14px rgba(255, 107, 107, 0.4);
+        }
+        .browser-col .product-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: #fff;
+        }
+        .browser-col .product-sub {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+        .browser-col-middle {
+            flex: 1.2;
+        }
+        .ring-wrap {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+        }
+        .ring-wrap svg {
+            width: 100%;
+            height: 100%;
+        }
+        .ring-wrap .ring-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .browser-col-right {
+            flex: 0.9;
+            align-items: flex-start;
+        }
+        .browser-col-right .param-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 12px;
+            color: var(--text-sub);
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .browser-col-right .param-row:last-child {
+            border-bottom: none;
+        }
+        .browser-col-right .param-row .val {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        @media (max-width: 900px) {
+            .hero {
+                height: auto;
+                padding-bottom: 40px;
+            }
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-sub {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .browser-window {
+                transform: none;
+                max-width: 520px;
+                margin: 0 auto;
+            }
+            .browser-window:hover {
+                transform: none;
+            }
+        }
+        /* ======== 核心优势 ======== */
+        .section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .section-head {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-head h2 {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .section-head p {
+            color: var(--text-sub);
+            font-size: 15px;
+        }
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .adv-card {
+            background: rgba(20, 16, 38, 0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-pill);
+            padding: 34px 28px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .adv-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 107, 107, 0.5);
+            box-shadow: 0 18px 40px rgba(255, 107, 107, 0.15);
+        }
+        .adv-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 18px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 217, 61, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+        .adv-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .adv-card p {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+        @media (max-width: 992px) {
+            .advantage-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .advantage-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* ======== 精选视频 ======== */
+        .section-video {
+            background: #0e0b1d;
+            border-radius: 40px 40px 0 0;
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .video-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.35s ease;
+            backdrop-filter: blur(8px);
+        }
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 217, 61, 0.4);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+        }
+        .video-thumbnail {
+            position: relative;
+            height: 180px;
+            background: linear-gradient(135deg, #1e1b38, #312e5c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-cat {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 16px;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .play-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+        .play-btn i {
+            color: #fff;
+            font-size: 18px;
+            margin-left: 3px;
+        }
+        .video-card:hover .play-btn {
+            background: var(--primary);
+            transform: scale(1.08);
+        }
+        .video-duration {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 8px;
+        }
+        .video-info {
+            padding: 16px 16px 18px;
+        }
+        .video-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 6px;
+        }
+        .video-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 10px;
+            min-height: 42px;
+        }
+        .video-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+        }
+        .video-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-sub);
+            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 14px;
+        }
+        .tag-video {
+            background: var(--primary);
+            color: #fff;
+            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 14px;
+        }
+        @media (max-width: 992px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* ======== 相关资讯 ======== */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            grid-auto-rows: 1fr;
+        }
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 220px;
+            transition: all 0.35s ease;
+            backdrop-filter: blur(8px);
+        }
+        .news-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 107, 107, 0.4);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+        }
+        .news-date {
+            font-size: 13px;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .news-date::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: inline-block;
+        }
+        .news-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 48px;
+        }
+        .news-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+        .news-link {
+            font-size: 14px;
+            color: var(--text-sub);
+            font-weight: 500;
+            margin-top: auto;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .news-link:hover {
+            color: var(--accent);
+        }
+        .section-divider {
+            width: 48px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            margin: 12px auto 0;
+        }
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* ======== FAQ ======== */
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+        .faq-item:hover {
+            border-color: rgba(255, 217, 61, 0.35);
+        }
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px 24px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .faq-question i {
+            font-size: 20px;
+            color: var(--primary);
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .faq-question .faq-q-text {
+            flex: 1;
+            font-weight: 700;
+            font-size: 16px;
+            color: #fff;
+        }
+        .faq-question .faq-arrow {
+            color: var(--text-sub);
+            transition: transform 0.3s;
+            font-size: 14px;
+        }
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s ease, padding 0.3s ease;
+            border-top: 0px solid rgba(255, 255, 255, 0.06);
+        }
+        .faq-item.active .faq-answer {
+            padding: 16px 24px 22px;
+            max-height: 600px;
+            border-top-width: 1px;
+        }
+        .faq-answer .answer-item {
+            padding: 6px 0 6px 18px;
+            position: relative;
+            color: var(--text-sub);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+        .faq-answer .answer-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        /* ======== 评论模块 ======== */
+        .section-comment {
+            background: #0e0b1d;
+            border-radius: 40px 40px 0 0;
+        }
+        .comment-layout {
+            display: flex;
+            gap: 36px;
+            align-items: flex-start;
+        }
+        .comment-form-card {
+            flex: 0 0 380px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 100px;
+        }
+        .comment-form-card input,
+        .comment-form-card textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            color: #fff;
+            padding: 14px 16px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+        .comment-form-card input:focus,
+        .comment-form-card textarea:focus {
+            border-color: var(--primary);
+        }
+        .comment-form-card textarea {
+            height: 120px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+        .comment-form-card .btn-submit {
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 26px;
+            border-radius: 30px;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 14px rgba(255, 107, 107, 0.35);
+        }
+        .comment-form-card .btn-submit:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+        .comment-list-wrap {
+            flex: 1;
+            min-width: 0;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            max-height: 720px;
+            overflow-y: auto;
+        }
+        .comment-list-title {
+            font-size: 15px;
+            color: var(--text-sub);
+            text-align: center;
+            padding: 8px 0 20px;
+            font-weight: 500;
+        }
+        .comment-item {
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 18px;
+            padding: 12px 16px;
+            margin-bottom: 14px;
+            transition: background 0.2s;
+        }
+        .comment-item:hover {
+            background: rgba(255, 255, 255, 0.07);
+        }
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .comment-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .comment-nickname {
+            font-size: 14px;
+            font-weight: 600;
+            color: #eee;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .comment-time {
+            font-size: 12px;
+            color: var(--text-sub);
+            flex-shrink: 0;
+        }
+        .comment-tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: rgba(255, 217, 61, 0.15);
+            color: var(--accent);
+            margin-bottom: 6px;
+            margin-right: 4px;
+        }
+        .comment-text {
+            font-size: 14px;
+            color: #cdd1dd;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+        .comment-actions {
+            display: flex;
+            gap: 18px;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+        .comment-actions span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .comment-actions span:hover {
+            color: var(--accent);
+        }
+        .comment-load-more {
+            text-align: center;
+            padding: 16px 0 4px;
+            color: var(--text-sub);
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .comment-load-more i {
+            display: block;
+            font-size: 18px;
+            margin-top: 4px;
+            animation: bounceDown 2s infinite;
+        }
+        @media (max-width: 992px) {
+            .comment-layout {
+                flex-direction: column;
+            }
+            .comment-form-card {
+                flex: 1 1 auto;
+                width: 100%;
+                position: static;
+            }
+        }
+        @media (max-width: 600px) {
+            .comment-form-card {
+                padding: 20px;
+            }
+            .comment-list-wrap {
+                padding: 14px;
+            }
+        }
+        /* ======== 页脚 ======== */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 26px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-sub);
+            position: relative;
+            z-index: 1;
+        }
+        .footer a {
+            color: var(--text-sub);
+        }
+        .footer a:hover {
+            color: var(--accent);
+        }
+        .footer .footer-links {
+            margin-bottom: 6px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        /* ======== 动画 ======== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes bounceDown {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(8px);
+            }
+        }
+        @keyframes floatBlob {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(20px, -30px) scale(1.06);
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+        /* ======== 滚动条 ======== */
+        .comment-list-wrap::-webkit-scrollbar {
+            width: 6px;
+        }
+        .comment-list-wrap::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .comment-list-wrap::-webkit-scrollbar-thumb {
+            background: rgba(255, 107, 107, 0.4);
+            border-radius: 6px;
+        }
+        /* ======== 通用 ======== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <canvas id="particles"></canvas>
+    <!-- 固定导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm4 4v2h8V7H8zm0 4v2h8v-2H8zm0 4v2h5v-2H8z"/></svg>
+                </div>
+                <span class="brand-name">色色漫画</span>
+            </div>
+            <div class="navbar-menu">
+                <a href="#hero">首页</a>
+                <a href="#section-advantage">优势</a>
+                <a href="#section-video">视频</a>
+                <a href="#section-news">资讯</a>
+                <a href="#section-faq">FAQ</a>
+                <a href="#section-comment">留言</a>
+            </div>
+        </div>
+    </nav>
+    <!-- 首屏Banner -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-left">
+                <div class="hero-tag"><i>✦</i> 全新升级 · 畅享阅读</div>
+                <h1>探索色色漫画<br>无限精彩世界</h1>
+                <p class="hero-sub">海量日漫韩漫国漫一网打尽，热门连载每日同步更新，高清画质沉浸体验，你的专属漫画乐园。</p>
+                <div class="hero-capsules">
+                    <span class="hero-capsule">热血</span>
+                    <span class="hero-capsule">恋爱</span>
+                    <span class="hero-capsule">悬疑</span>
+                    <span class="hero-capsule">奇幻</span>
+                    <span class="hero-capsule">搞笑</span>
+                    <span class="hero-capsule">治愈</span>
+                </div>
+                <div class="hero-btns">
+                    <a href="#section-advantage" class="btn-primary">📖 立即阅读</a>
+                    <a href="#section-video" class="btn-ghost">▶ 观看视频</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="browser-window">
+                    <div class="browser-top">
+                        <span class="dot-red"></span>
+                        <span class="dot-yellow"></span>
+                        <span class="dot-green"></span>
+                        <span style="flex:1;height:6px;background:rgba(255,255,255,0.08);border-radius:3px;margin-left:8px;"></span>
+                    </div>
+                    <div class="browser-body">
+                        <div class="browser-col">
+                            <div class="product-icon">📚</div>
+                            <div class="product-name">色色漫画</div>
+                            <div class="product-sub">今日精选</div>
+                        </div>
+                        <div class="browser-col browser-col-middle">
+                            <div class="ring-wrap">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+                                    <circle cx="50" cy="50" r="42" fill="none" stroke="var(--accent)" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="66" stroke-linecap="round">
+                                        <animate attributeName="stroke-dashoffset" from="264" to="66" dur="2s" fill="freeze"/>
+                                    </circle>
+                                </svg>
+                                <span class="ring-text">75%</span>
+                            </div>
+                            <div style="font-size:12px;color:#9fa3b0;margin-top:6px;">阅读进度</div>
+                        </div>
+                        <div class="browser-col browser-col-right">
+                            <div class="param-row"><span>今日更新</span><span class="val">128话</span></div>
+                            <div class="param-row"><span>在线人数</span><span class="val">6,342</span></div>
+                            <div class="param-row"><span>收藏漫画</span><span class="val">1,907</span></div>
+                            <div class="param-row"><span>好评率</span><span class="val">98%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 核心优势 -->
+    <section class="section" id="section-advantage">
+        <div class="container">
+            <div class="section-head">
+                <h2>色色漫画·核心优势</h2>
+                <p>为什么万千漫友选择我们</p>
+            </div>
+            <div class="advantage-grid">
+                <div class="adv-card fade-in">
+                    <div class="adv-icon">📚</div>
+                    <h3>海量精品</h3>
+                    <p>精选数万部优质漫画作品，覆盖日漫、韩漫、国漫全品类，总有你喜欢的。</p>
+                </div>
+                <div class="adv-card fade-in">
+                    <div class="adv-icon">⚡</div>
+                    <h3>每日更新</h3>
+                    <p>热门漫画第一时间同步更新，绝不让你多等一分钟，追更体验极佳。</p>
+                </div>
+                <div class="adv-card fade-in">
+                    <div class="adv-icon">✨</div>
+                    <h3>高清画质</h3>
+                    <p>超清原画级画质，细节清晰可见，打造极致舒适的漫画阅读体验。</p>
+                </div>
+                <div class="adv-card fade-in">
+                    <div class="adv-icon">💻</div>
+                    <h3>多端同步</h3>
+                    <p>手机、平板、电脑多端无缝衔接，阅读进度自动同步，随时随地接着看。</p>
+                </div>
+                <div class="adv-card fade-in">
+                    <div class="adv-icon">🎯</div>
+                    <h3>智能推荐</h3>
+                    <p>AI算法深度分析你的喜好，精准推荐高分佳作，告别书荒烦恼。</p>
+                </div>
+                <div class="adv-card fade-in">
+                    <div class="adv-icon">💬</div>
+                    <h3>社区交流</h3>
+                    <p>与万千漫友一起讨论剧情、分享观点，让追漫之路不再孤单。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 精选视频 -->
+    <section class="section section-video" id="section-video">
+        <div class="container">
+            <div class="section-head">
+                <h2>精选视频 <span style="color:var(--primary);">· 热度榜单</span></h2>
+                <p>热门漫画相关视频，深度解读与高燃混剪</p>
+            </div>
+            <div class="video-grid">
+                <div class="video-card fade-in">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#1a122e,#4a2d74);">
+                        <span class="video-cat">🔍 深度解析</span>
+                        <div class="play-btn"><i>▶</i></div>
+                        <span class="video-duration">02:34</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《进击的巨人》最终季深度解析</h3>
+                        <p class="video-desc">从艾伦的抉择到故事的哲学内核，深度解读这部史诗级作品。</p>
+                        <div class="video-meta"><span>👁 128.5万</span><span>👍 3.2万</span></div>
+                        <div class="video-tags"><span class="tag-video">热门</span><span class="tag">巨人</span><span class="tag">深度</span></div>
+                    </div>
+                </div>
+                <div class="video-card fade-in">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#1a2e1a,#2d6b3c);">
+                        <span class="video-cat">🔥 名场面</span>
+                        <div class="play-btn"><i>▶</i></div>
+                        <span class="video-duration">01:52</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《鬼灭之刃》无限列车篇名场面</h3>
+                        <p class="video-desc">炎柱炼狱杏寿郎的高光时刻，燃到泪目的经典之战。</p>
+                        <div class="video-meta"><span>👁 98.7万</span><span>👍 2.8万</span></div>
+                        <div class="video-tags"><span class="tag-video">名场面</span><span class="tag">鬼灭</span></div>
+                    </div>
+                </div>
+                <div class="video-card fade-in">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#1a1a3a,#303a7a);">
+                        <span class="video-cat">🎬 精彩回顾</span>
+                        <div class="play-btn"><i>▶</i></div>
+                        <span class="video-duration">03:10</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《咒术回战》第二季高能合集</h3>
+                        <p class="video-desc">涩谷事变名场面全收录，五条悟式帅气瞬间大盘点。</p>
+                        <div class="video-meta"><span>👁 76.3万</span><span>👍 1.9万</span></div>
+                        <div class="video-tags"><span class="tag-video">高燃</span><span class="tag">咒术</span></div>
+                    </div>
+                </div>
+                <div class="video-card fade-in">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#0a2a3a,#1a5a7a);">
+                        <span class="video-cat">⚓ 高燃混剪</span>
+                        <div class="play-btn"><i>▶</i></div>
+                        <span class="video-duration">02:08</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《海贼王》和之国篇高燃混剪</h3>
+                        <p class="video-desc">路飞五档觉醒，凯多战巅峰对决，全程高能停不下来。</p>
+                        <div class="video-meta"><span>👁 155.2万</span><span>👍 4.1万</span></div>
+                        <div class="video-tags"><span class="tag-video">混剪</span><span class="tag">海贼王</span></div>
+                    </div>
+                </div>
+                <div class="video-card fade-in">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#2a1a1a,#6b2d2d);">
+                        <span class="video-cat">🎉 新作情报</span>
+                        <div class="play-btn"><i>▶</i></div>
+                        <span class="video-duration">01:15</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《电锯人》动画化决定PV</h3>
+                        <p class="video-desc">MAPPA制作，电次声优阵容公布，期待值直接拉满。</p>
+                        <div class="video-meta"><span>👁 54.8万</span><span>👍 1.2万</span></div>
+                        <div class="video-tags"><span class="tag-video">新作</span><span class="tag">电锯人</span></div>
+                    </div>
+                </div>
+                <div class="video-card fade-in">
+                    <div class="video-thumbnail" style="background:linear-gradient(135deg,#102830,#185a4a);">
+                        <span class="video-cat">🗺️ 作品图鉴</span>
+                        <div class="play-btn"><i>▶</i></div>
+                        <span class="video-duration">02:45</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">《葬送的芙莉莲》旅行图鉴</h3>
+                        <p class="video-desc">跟着芙莉莲重温勇者一行人的足迹，感受时间与情感的交织。</p>
+                        <div class="video-meta"><span>👁 43.2万</span><span>👍 1.5万</span></div>
+                        <div class="video-tags"><span class="tag-video">治愈</span><span class="tag">芙莉莲</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 相关资讯 -->
+    <section class="section" id="section-news">
+        <div class="container">
+            <div class="section-head">
+                <h2>相关资讯</h2>
+                <p>漫画行业动态、作品情报一网打尽</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="news-grid">
+                <div class="news-card fade-in">
+                    <div class="news-date">2026-01-18</div>
+                    <h3 class="news-title">2026年春季漫画新番前瞻：十大不容错过的连载</h3>
+                    <p class="news-desc">从少年热血到悬疑烧脑，编辑部精选今年春季最值得期待的十部新连载。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+                <div class="news-card fade-in">
+                    <div class="news-date">2026-01-12</div>
+                    <h3 class="news-title">现象级漫画IP的改编之路：从纸张到荧幕</h3>
+                    <p class="news-desc">复盘近年来成功出圈的漫画IP改编案例，解读创作与商业的平衡之道。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+                <div class="news-card fade-in">
+                    <div class="news-date">2026-01-05</div>
+                    <h3 class="news-title">新锐漫画家访谈：灵感来源于生活点滴</h3>
+                    <p class="news-desc">三位新锐漫画家分享创作初心与坚持，聊聊画笔下的世界是如何构建的。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+                <div class="news-card fade-in">
+                    <div class="news-date">2025-12-28</div>
+                    <h3 class="news-title">读者票选最受欢迎漫画TOP10年度榜单</h3>
+                    <p class="news-desc">近十万名读者参与投票，年度人气漫画排行榜正式揭晓，看看你的本命上榜没。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+                <div class="news-card fade-in">
+                    <div class="news-date">2025-12-19</div>
+                    <h3 class="news-title">国际漫画节中国展区亮点回顾</h3>
+                    <p class="news-desc">多部国漫作品惊艳亮相国际舞台，向世界展示中国漫画的独特魅力。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+                <div class="news-card fade-in">
+                    <div class="news-date">2025-12-10</div>
+                    <h3 class="news-title">漫画产业数字化变革趋势研判</h3>
+                    <p class="news-desc">从纸质到数字，从单行本到流媒体，漫画产业的未来形态正在重塑。</p>
+                    <a href="#" class="news-link">查看详情 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 常见问题 FAQ -->
+    <section class="section" id="section-faq">
+        <div class="container">
+            <div class="section-head">
+                <h2>常见问题答疑</h2>
+                <p>你想知道的漫画冷知识与作品深扒</p>
+            </div>
+            <div class="faq-list">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <i class="faq-icon">◈</i>
+                        <span class="faq-q-text">《进击的巨人》中艾伦最后为何选择灭世？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-item">艾伦认为只有彻底清除岛外人类，才能让帕拉迪岛获得真正的自由，这是他的核心动机。</div>
+                        <div class="answer-item">他透过进击的巨人看到未来记忆碎片，发现自己被命运推着走向了这一极端选择。</div>
+                        <div class="answer-item">灭世计划源于他对伙伴和家园的极致保护欲，在他的认知里这是唯一可行的路。</div>
+                        <div class="answer-item">艾伦与阿尔敏那场沙滩对话，是对自由与和平两种价值观的终极哲学碰撞。</div>
+                        <div class="answer-item">谏山创在访谈中确认这是一个悲剧性的必然结局，艾伦其实没有更好的选择。</div>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="faq-icon">◈</i>
+                        <span class="faq-q-text">《鬼灭之刃》中无惨为何如此惧怕继国缘一？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-item">继国缘一是唯一让无惨从心底感受到死亡威胁的人类剑士，这种恐惧深入骨髓。</div>
+                        <div class="answer-item">缘一的日之呼吸十三型拥有克制无惨再生能力的特殊波纹之力。</div>
+                        <div class="answer-item">当年那场对决中缘一几乎将无惨彻底斩杀，给他留下了伴随千年的心理阴影。</div>
+                        <div class="answer-item">缘一能将自身呼吸法与赫刀完美结合，真正做到从细胞层面斩灭鬼之核心。</div>
+                        <div class="answer-item">无惨对缘一的恐惧直接导致他此后千年都在搜寻并消灭日之呼吸的传承者。</div>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="faq-icon">◈</i>
+                        <span class="faq-q-text">《咒术回战》中五条悟被封印的真相是什么？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-item">整个封印计划的核心是利用狱门疆这一特级咒具，在特定条件下困住目标一分钟以上。</div>
+                        <div class="answer-item">羂索夺取了伏黑甚尔的身体作为诱饵，利用五条悟对挚友的怀念创造破绽。</div>
+                        <div class="answer-item">封印被设计在五条悟参加同学聚会时发动，那时他正处于情感波动状态。</div>
+                        <div class="answer-item">一旦目标被狱门疆完全包裹，极难从内部突破，五条悟因此被困在暗黑空间。</div>
+                        <div class="answer-item">五条悟被封印后咒术高专战力大减，成为澀谷事变中正邪力量平衡被打破的关键转折点。</div>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="faq-icon">◈</i>
+                        <span class="faq-q-text">《海贼王》中尼卡形态对路飞意味着什么？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-item">尼卡是传说中的太阳神，在故事中象征着解放、自由与欢乐，是古代奴隶传颂的救世主形象。</div>
+                        <div class="answer-item">路飞的橡胶果实真正的名字是动物系人人果实幻兽种尼卡形态，名字本身就带有深意。</div>
+                        <div class="answer-item">觉醒后的路飞拥有更加自由多变的攻击方式，连身体的物理限制都被打破。</div>
+                        <div class="answer-item">尼卡形态将路飞的"解放"理念升华到了命运层面，为他成为解放者铺垫了道路。</div>
+                        <div class="answer-item">这一形态也揭示出路飞与乔伊波伊之间跨越八百年的意志传承，让他背负起改变世界的使命。</div>
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="faq-icon">◈</i>
+                        <span class="faq-q-text">《电锯人》中玛奇玛的真实目的是什么？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-item">玛奇玛的真实身份是支配之恶魔，她拥有支配一切生灵的力量与野心。</div>
+                        <div class="answer-item">她试图通过控制电锯恶魔波奇塔，来构建一个没有死亡与悲伤的理想世界。</div>
+                        <div class="answer-item">玛奇玛骨子里认为，只有通过绝对的支配才能实现真正的和平与秩序。</div>
+                        <div class="answer-item">在最终决战中，电次和波奇塔用"想要幸福"的愿望击碎了玛奇玛的计划。</div>
+                        <div class="answer-item">她的失败也暗示着这部作品的核心主题：爱与连接比支配更有力量。</div>
+                    </div>
+                </div>
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="faq-icon">◈</i>
+                        <span class="faq-q-text">《葬送的芙莉莲》中勇者辛美尔为何没有求婚？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-item">辛美尔心里清楚精灵拥有长达千年的寿命，而人类的一生转瞬即逝，他不想给芙莉莲留下漫长的孤独。</div>
+                        <div class="answer-item">他在十年冒险中始终默默守护着芙莉莲，将爱意藏在每一次微笑与并肩之中。</div>
+                        <div class="answer-item">辛美尔在生命的最后时刻坦诚了情感，但他选择不求婚，是因为不愿让自己的离去成为芙莉莲的枷锁。</div>
+                        <div class="answer-item">正是他的这份克制与温柔，让芙莉莲在数百年后真正开始理解人类情感的珍贵。</div>
+                        <div class="answer-item">这个设定也直接推动了整个故事的主线：了解人类、认识自己，在旅途中完成跨越时空的告别。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 评论留言模块 -->
+    <section class="section section-comment" id="section-comment">
+        <div class="container">
+            <div class="section-head">
+                <h2>读者留言</h2>
+                <p>来自千万漫友的真实声音，欢迎加入讨论</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="comment-layout">
+                <!-- 左侧表单 -->
+                <div class="comment-form-card">
+                    <h3 style="color:#fff;font-size:18px;margin-bottom:16px;">✏️ 发布留言</h3>
+                    <input type="text" placeholder="你的昵称" maxlength="16">
+                    <textarea placeholder="写下你对本站剧集、功能的看法与建议..."></textarea>
+                    <button class="btn-submit">↑ 发布留言</button>
+                </div>
+                <!-- 右侧评论列表 -->
+                <div class="comment-list-wrap">
+                    <div class="comment-list-title">—— 最新评论 ——</div>
+                    <!-- 第1条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">漫</div>
+                            <span class="comment-nickname">追漫少年</span>
+                            <span class="comment-time">2026-01-18 15:32</span>
+                        </div>
+                        <span class="comment-tag">热议</span>
+                        <p class="comment-text">每天都在等《咒术回战》更新，这剧情走向完全猜不透，作者太会吊胃口了！</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 234</span><span>💬 18</span></div>
+                    </div>
+                    <!-- 第2条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">莉</div>
+                            <span class="comment-nickname">莉莉安吖</span>
+                            <span class="comment-time">2026-01-18 14:02</span>
+                        </div>
+                        <span class="comment-tag">好评</span>
+                        <p class="comment-text">色色漫画的画质也太清晰了，放大看细节依然精致，比市面上好多APP都强。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 187</span><span>💬 9</span></div>
+                    </div>
+                    <!-- 第3条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">海</div>
+                            <span class="comment-nickname">海贼王女帝</span>
+                            <span class="comment-time">2026-01-18 13:17</span>
+                        </div>
+                        <span class="comment-tag">催更</span>
+                        <p class="comment-text">《海贼王》和之国篇看完后完全出不来，路飞尼卡形态的BGM还在脑内循环。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 321</span><span>💬 27</span></div>
+                    </div>
+                    <!-- 第4条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">芙</div>
+                            <span class="comment-nickname">芙莉莲的旅行</span>
+                            <span class="comment-time">2026-01-18 12:08</span>
+                        </div>
+                        <span class="comment-tag">观点</span>
+                        <p class="comment-text">看《葬送的芙莉莲》真的会哭，时间跨度带来的无力感写得实在太细腻了。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 456</span><span>💬 35</span></div>
+                    </div>
+                    <!-- 第5条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">炎</div>
+                            <span class="comment-nickname">炎柱大哥</span>
+                            <span class="comment-time">2026-01-18 11:42</span>
+                        </div>
+                        <span class="comment-tag">精彩</span>
+                        <p class="comment-text">无限列车篇看了三遍，每次到炼狱大哥倒下那段都绷不住，真正的炎柱精神。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 512</span><span>💬 42</span></div>
+                    </div>
+                    <!-- 第6条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">电</div>
+                            <span class="comment-nickname">电次听话</span>
+                            <span class="comment-time">2026-01-18 10:26</span>
+                        </div>
+                        <span class="comment-tag">讨论</span>
+                        <p class="comment-text">《电锯人》的动画化质量真不错，MAPPA这次依旧稳定发挥，期待后续剧情。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 198</span><span>💬 14</span></div>
+                    </div>
+                    <!-- 第7条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">暗</div>
+                            <span class="comment-nickname">暗影大人</span>
+                            <span class="comment-time">2026-01-18 09:54</span>
+                        </div>
+                        <span class="comment-tag">理性</span>
+                        <p class="comment-text">平台推荐算法越来越准了，最近推的几部冷门作品都很合我胃口，继续加油。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 76</span><span>💬 5</span></div>
+                    </div>
+                    <!-- 第8条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">萌</div>
+                            <span class="comment-nickname">软萌小兔</span>
+                            <span class="comment-time">2026-01-18 09:00</span>
+                        </div>
+                        <span class="comment-tag">好评</span>
+                        <p class="comment-text">手机上看漫画体验太舒服了，页面丝滑不卡顿，夜晚模式也护眼。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 245</span><span>💬 16</span></div>
+                    </div>
+                    <!-- 第9条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">A</div>
+                            <span class="comment-nickname">Ace先生</span>
+                            <span class="comment-time">2026-01-18 08:15</span>
+                        </div>
+                        <span class="comment-tag">比较</span>
+                        <p class="comment-text">对比了好几个漫画软件，还是这里资源全，更新快，老漫迷的福音。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 130</span><span>💬 8</span></div>
+                    </div>
+                    <!-- 第10条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">白</div>
+                            <span class="comment-nickname">白夜行歌</span>
+                            <span class="comment-time">2026-01-17 23:48</span>
+                        </div>
+                        <span class="comment-tag">推荐</span>
+                        <p class="comment-text">有没有人看《黄金神威》？这部作品的知识量和荒诞感真的绝了，强烈安利。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 310</span><span>💬 22</span></div>
+                    </div>
+                    <!-- 第11条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">信</div>
+                            <span class="comment-nickname">信任危机</span>
+                            <span class="comment-time">2026-01-17 22:33</span>
+                        </div>
+                        <span class="comment-tag">热议</span>
+                        <p class="comment-text">《进击的巨人》的结局争议这么大，说到底还是每个人对自由的理解不同吧。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 421</span><span>💬 38</span></div>
+                    </div>
+                    <!-- 第12条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">恋</div>
+                            <span class="comment-nickname">恋爱番爱好者</span>
+                            <span class="comment-time">2026-01-17 21:19</span>
+                        </div>
+                        <span class="comment-tag">讨论</span>
+                        <p class="comment-text">最近恋爱番怎么都这么甜，老阿姨看的少女心爆棚，停不下来。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 160</span><span>💬 11</span></div>
+                    </div>
+                    <!-- 第13条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">深</div>
+                            <span class="comment-nickname">深夜读书人</span>
+                            <span class="comment-time">2026-01-17 20:05</span>
+                        </div>
+                        <span class="comment-tag">催更</span>
+                        <p class="comment-text">作者们能不能加更啊，每週等一话真的太煎熬了，求求了。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 88</span><span>💬 7</span></div>
+                    </div>
+                    <!-- 第14条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">奇</div>
+                            <span class="comment-nickname">奇幻漫游</span>
+                            <span class="comment-time">2026-01-17 19:21</span>
+                        </div>
+                        <span class="comment-tag">观点</span>
+                        <p class="comment-text">《葬送的芙莉莲》动画版把漫画的意境完全还原了，尤其是魔法战斗的场面，太美了。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 267</span><span>💬 15</span></div>
+                    </div>
+                    <!-- 第15条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">漫</div>
+                            <span class="comment-nickname">漫游者达</span>
+                            <span class="comment-time">2026-01-17 18:11</span>
+                        </div>
+                        <span class="comment-tag">好评</span>
+                        <p class="comment-text">在色色漫画上找到了好多小时候看过的经典漫画，满满的童年回忆。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 189</span><span>💬 10</span></div>
+                    </div>
+                    <!-- 第16条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">L</div>
+                            <span class="comment-nickname">Luffy桑</span>
+                            <span class="comment-time">2026-01-17 17:02</span>
+                        </div>
+                        <span class="comment-tag">热门</span>
+                        <p class="comment-text">和之国篇的动画真的顶，打斗场面经费在燃烧，路飞五档帅炸了。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 356</span><span>💬 24</span></div>
+                    </div>
+                    <!-- 第17条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">墨</div>
+                            <span class="comment-nickname">墨染青衫</span>
+                            <span class="comment-time">2026-01-17 16:44</span>
+                        </div>
+                        <span class="comment-tag">理性</span>
+                        <p class="comment-text">希望平台能多上一些国漫，近几年的国漫进步真的很大，值得被看见。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 142</span><span>💬 9</span></div>
+                    </div>
+                    <!-- 第18条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">苏</div>
+                            <span class="comment-nickname">苏苏的世界</span>
+                            <span class="comment-time">2026-01-17 15:20</span>
+                        </div>
+                        <span class="comment-tag">建议</span>
+                        <p class="comment-text">能不能出一个只看完结漫画的筛选按钮？我喜欢攒着一次性看完。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 98</span><span>💬 6</span></div>
+                    </div>
+                    <!-- 第19条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">叔</div>
+                            <span class="comment-nickname">漫画大叔</span>
+                            <span class="comment-time">2026-01-17 14:58</span>
+                        </div>
+                        <span class="comment-tag">讨论</span>
+                        <p class="comment-text">看《电锯人》根本停不下来，藤本树的脑洞真的摸不透，每话都有惊喜。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 204</span><span>💬 12</span></div>
+                    </div>
+                    <!-- 第20条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">雪</div>
+                            <span class="comment-nickname">雪落无声</span>
+                            <span class="comment-time">2026-01-17 13:30</span>
+                        </div>
+                        <span class="comment-tag">好评</span>
+                        <p class="comment-text">彩漫的清晰度绝对顶级，连网点纸的质感都还原出来了，舒服。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 76</span><span>💬 3</span></div>
+                    </div>
+                    <!-- 第21条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">卡</div>
+                            <span class="comment-nickname">卡卡罗特</span>
+                            <span class="comment-time">2026-01-17 12:18</span>
+                        </div>
+                        <span class="comment-tag">热议</span>
+                        <p class="comment-text">鸟山明老师一路走好，龙珠是永远的经典，感谢您给了我们一个热血的童年。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 648</span><span>💬 37</span></div>
+                    </div>
+                    <!-- 第22条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">风</div>
+                            <span class="comment-nickname">风停止线</span>
+                            <span class="comment-time">2026-01-17 11:02</span>
+                        </div>
+                        <span class="comment-tag">催更</span>
+                        <p class="comment-text">《猎人》什么时候才能复刊啊，比等《海贼王》完结还难。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 520</span><span>💬 41</span></div>
+                    </div>
+                    <!-- 第23条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">月</div>
+                            <span class="comment-nickname">月见酒</span>
+                            <span class="comment-time">2026-01-17 10:11</span>
+                        </div>
+                        <span class="comment-tag">观点</span>
+                        <p class="comment-text">《进击的巨人》艾伦的处境真的残酷，换任何人站在他的位置都很难做得更好。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 203</span><span>💬 19</span></div>
+                    </div>
+                    <!-- 第24条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">茶</div>
+                            <span class="comment-nickname">茶泡饭君</span>
+                            <span class="comment-time">2026-01-17 09:36</span>
+                        </div>
+                        <span class="comment-tag">功能反馈</span>
+                        <p class="comment-text">滑动翻页的动画还可以再优化一下，有时候加载下一章会有一点停顿。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 54</span><span>💬 4</span></div>
+                    </div>
+                    <!-- 第25条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">星</div>
+                            <span class="comment-nickname">星河滚烫</span>
+                            <span class="comment-time">2026-01-17 09:01</span>
+                        </div>
+                        <span class="comment-tag">好评</span>
+                        <p class="comment-text">评论区个个人才说话好听，一边看漫画一边看评论已经成了习惯。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 112</span><span>💬 8</span></div>
+                    </div>
+                    <!-- 第26条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">灭</div>
+                            <span class="comment-nickname">灭鬼小分队</span>
+                            <span class="comment-time">2026-01-16 23:45</span>
+                        </div>
+                        <span class="comment-tag">讨论</span>
+                        <p class="comment-text">鬼灭的结局其实很完美了，无惨的败亡让人觉得这么多牺牲终究是值得的。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 230</span><span>💬 16</span></div>
+                    </div>
+                    <!-- 第27条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">木</div>
+                            <span class="comment-nickname">木之本樱</span>
+                            <span class="comment-time">2026-01-16 22:14</span>
+                        </div>
+                        <span class="comment-tag">情怀</span>
+                        <p class="comment-text">小时候看魔卡少女樱，现在重温依然觉得好看，Clamp大妈们太厉害了。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 330</span><span>💬 21</span></div>
+                    </div>
+                    <!-- 第28条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">零</div>
+                            <span class="comment-nickname">从零开始</span>
+                            <span class="comment-time">2026-01-16 21:09</span>
+                        </div>
+                        <span class="comment-tag">新粉</span>
+                        <p class="comment-text">第一次用色色漫画就被圈粉了，界面清爽没有乱糟糟的广告，爱了。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 89</span><span>💬 5</span></div>
+                    </div>
+                    <!-- 第29条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">魂</div>
+                            <span class="comment-nickname">灵魂画手</span>
+                            <span class="comment-time">2026-01-16 20:02</span>
+                        </div>
+                        <span class="comment-tag">建议</span>
+                        <p class="comment-text">希望增加评论区回复提醒功能，不然自己的评论有没有人回复都不知道。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 67</span><span>💬 3</span></div>
+                    </div>
+                    <!-- 第30条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">江</div>
+                            <span class="comment-nickname">江户川乱来</span>
+                            <span class="comment-time">2026-01-16 19:22</span>
+                        </div>
+                        <span class="comment-tag">热门</span>
+                        <p class="comment-text">柯南哪一年才能完结？在线等挺急的。小兰姐姐已经从姐姐变成妹妹了。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 403</span><span>💬 28</span></div>
+                    </div>
+                    <!-- 第31条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">无</div>
+                            <span class="comment-nickname">无敌大萝卜</span>
+                            <span class="comment-time">2026-01-16 18:14</span>
+                        </div>
+                        <span class="comment-tag">热议</span>
+                        <p class="comment-text">《电锯人》中的血之恶魔帕瓦是最可爱的疯批，没有之一！</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 278</span><span>💬 18</span></div>
+                    </div>
+                    <!-- 第32条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">秋</div>
+                            <span class="comment-nickname">秋天的童话</span>
+                            <span class="comment-time">2026-01-16 17:20</span>
+                        </div>
+                        <span class="comment-tag">好评</span>
+                        <p class="comment-text">很喜欢色色漫画的专题策划，每次节日专题都能发现宝藏作品。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 91</span><span>💬 4</span></div>
+                    </div>
+                    <!-- 第33条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">玄</div>
+                            <span class="comment-nickname">玄不改非</span>
+                            <span class="comment-time">2026-01-16 16:33</span>
+                        </div>
+                        <span class="comment-tag">观点</span>
+                        <p class="comment-text">其实有些漫画家把自己的生活经历画进作品，读起来才有那种真实感。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 84</span><span>💬 5</span></div>
+                    </div>
+                    <!-- 第34条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">犬</div>
+                            <span class="comment-nickname">犬夜叉的牙</span>
+                            <span class="comment-time">2026-01-16 15:44</span>
+                        </div>
+                        <span class="comment-tag">经典</span>
+                        <p class="comment-text">高桥留美子老师的《犬夜叉》放到现在看依然是神作，任何时代都不会过时。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 267</span><span>💬 14</span></div>
+                    </div>
+                    <!-- 第35条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">梦</div>
+                            <span class="comment-nickname">梦回千年</span>
+                            <span class="comment-time">2026-01-16 14:20</span>
+                        </div>
+                        <span class="comment-tag">讨论</span>
+                        <p class="comment-text">《葬送的芙莉莲》里，辛美尔其实才是最懂爱的人，他把爱藏在了时光里。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 312</span><span>💬 20</span></div>
+                    </div>
+                    <!-- 第36条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">米</div>
+                            <span class="comment-nickname">米奇米奇</span>
+                            <span class="comment-time">2026-01-16 13:02</span>
+                        </div>
+                        <span class="comment-tag">反馈</span>
+                        <p class="comment-text">漫画详情页加载速度有点慢，希望能优化一下，其它都很好。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 43</span><span>💬 2</span></div>
+                    </div>
+                    <!-- 第37条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">轮</div>
+                            <span class="comment-nickname">轮回之眼</span>
+                            <span class="comment-time">2026-01-16 11:38</span>
+                        </div>
+                        <span class="comment-tag">热门</span>
+                        <p class="comment-text">《火影忍者》里最打动我的其实是自来也的篇章，每个人的成长都有代价。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 380</span><span>💬 23</span></div>
+                    </div>
+                    <!-- 第38条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">玖</div>
+                            <span class="comment-nickname">玖黎</span>
+                            <span class="comment-time">2026-01-16 10:29</span>
+                        </div>
+                        <span class="comment-tag">催更</span>
+                        <p class="comment-text">《海贼王》到底还剩下多少章？感觉终于要进入最终章了！</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 175</span><span>💬 13</span></div>
+                    </div>
+                    <!-- 第39条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">青</div>
+                            <span class="comment-nickname">青山不老</span>
+                            <span class="comment-time">2026-01-16 09:40</span>
+                        </div>
+                        <span class="comment-tag">观点</span>
+                        <p class="comment-text">漫画改编动画最怕的就是魔改，希望制作组都能像《芙莉莲》一样尊重原作。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 146</span><span>💬 10</span></div>
+                    </div>
+                    <!-- 第40条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">悦</div>
+                            <span class="comment-nickname">悦悦小公举</span>
+                            <span class="comment-time">2026-01-15 23:44</span>
+                        </div>
+                        <span class="comment-tag">好评</span>
+                        <p class="comment-text">终于找到一款能让我安心看漫画的APP了，没有广告打扰的感觉真好。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 205</span><span>💬 9</span></div>
+                    </div>
+                    <!-- 第41条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">纯</div>
+                            <span class="comment-nickname">纯白无言</span>
+                            <span class="comment-time">2026-01-15 22:17</span>
+                        </div>
+                        <span class="comment-tag">讨论</span>
+                        <p class="comment-text">《咒术回战》的芥见下下真的是发刀狂魔，完全不留情面啊。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 288</span><span>💬 17</span></div>
+                    </div>
+                    <!-- 第42条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">岛</div>
+                            <span class="comment-nickname">岛民小周</span>
+                            <span class="comment-time">2026-01-15 21:03</span>
+                        </div>
+                        <span class="comment-tag">推荐</span>
+                        <p class="comment-text">向所有人安利《迷宫饭》，又好吃又好笑又治愈，设定更是绝了。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 154</span><span>💬 11</span></div>
+                    </div>
+                    <!-- 第43条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">苍</div>
+                            <span class="comment-nickname">苍月孤狼</span>
+                            <span class="comment-time">2026-01-15 19:28</span>
+                        </div>
+                        <span class="comment-tag">热议</span>
+                        <p class="comment-text">《葬送的芙莉莲》里勇者一行的感情线处理实在太高级了，含蓄而深刻。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 236</span><span>💬 12</span></div>
+                    </div>
+                    <!-- 第44条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">路</div>
+                            <span class="comment-nickname">路过的假面骑士</span>
+                            <span class="comment-time">2026-01-15 18:10</span>
+                        </div>
+                        <span class="comment-tag">功能建议</span>
+                        <p class="comment-text">希望能支持离线下载看漫画，地铁上没网的时候也能看。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 79</span><span>💬 3</span></div>
+                    </div>
+                    <!-- 第45条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">夜</div>
+                            <span class="comment-nickname">夜风微凉</span>
+                            <span class="comment-time">2026-01-15 17:22</span>
+                        </div>
+                        <span class="comment-tag">好评</span>
+                        <p class="comment-text">色色漫画上的韩漫质量也很高，好多热门韩漫都能第一时间看到。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 118</span><span>💬 7</span></div>
+                    </div>
+                    <!-- 第46条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">羽</div>
+                            <span class="comment-nickname">羽生结弦</span>
+                            <span class="comment-time">2026-01-15 16:07</span>
+                        </div>
+                        <span class="comment-tag">讨论</span>
+                        <p class="comment-text">不知道大家看漫画时会不会注意背景细节，很多彩蛋都藏在角落里。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 64</span><span>💬 5</span></div>
+                    </div>
+                    <!-- 第47条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">花</div>
+                            <span class="comment-nickname">花开半夏</span>
+                            <span class="comment-time">2026-01-15 15:18</span>
+                        </div>
+                        <span class="comment-tag">观点</span>
+                        <p class="comment-text">现在国漫的进步肉眼可见，无论是画风还是剧本都在慢慢变好。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 173</span><span>💬 8</span></div>
+                    </div>
+                    <!-- 第48条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">超</div>
+                            <span class="comment-nickname">超高校级的希望</span>
+                            <span class="comment-time">2026-01-15 14:02</span>
+                        </div>
+                        <span class="comment-tag">讨论</span>
+                        <p class="comment-text">《弹丸论破》漫画版不少细节比游戏还丰富，值得一看。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 88</span><span>💬 4</span></div>
+                    </div>
+                    <!-- 第49条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">溪</div>
+                            <span class="comment-nickname">溪云初起</span>
+                            <span class="comment-time">2026-01-15 12:55</span>
+                        </div>
+                        <span class="comment-tag">好评</span>
+                        <p class="comment-text">排班很舒服，阅读进度记忆也很准，下次打开还是上次看到的那一页。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 96</span><span>💬 3</span></div>
+                    </div>
+                    <!-- 第50条 -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">冬</div>
+                            <span class="comment-nickname">冬日暖阳</span>
+                            <span class="comment-time">2026-01-15 11:32</span>
+                        </div>
+                        <span class="comment-tag">精彩</span>
+                        <p class="comment-text">一口气补完了《电锯人》全部章节，很久没有这种停不下来的感觉了。</p>
+                        <div class="comment-actions"><span>回复</span><span>👍 145</span><span>💬 9</span></div>
+                    </div>
+                    <div class="comment-load-more">
+                        <span>向下滑动查看更多留言</span>
+                        <i>↓</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 页脚版权 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">联系方式</a>
+                <a href="#">版权声明</a>
+                <a href="#">用户协议</a>
+            </div>
+            <p>© 2026 色色漫画 · 版权所有 · 免责声明：本站所有漫画资源均来源于网络，仅提供试读与推广，如涉侵权请联系删除。</p>
+        </div>
+    </footer>
+    <!-- 交互脚本 -->
+    <script>
+        // ===== 粒子背景 =====
+        (function() {
+            const canvas = document.getElementById('particles');
+            if (!canvas || window.innerWidth < 600) { if (canvas) canvas.style.display = 'none'; return; }
+            const ctx = canvas.getContext('2d');
+            let w, h, particles = [];
+            function resize() { w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight; }
+            window.addEventListener('resize', resize);
+            resize();
+            const colors = ['#ff6b6b', '#ffd93d', '#ffffff'];
+            class Particle {
+                constructor() { this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.r = Math.random() * 2 + 0.5;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.c = colors[Math.floor(Math.random() * colors.length)];
+                    this.a = Math.random() * 0.4 + 0.2; }
+                update() { this.x += this.vx;
+                    this.y += this.vy; if (this.x < 0 || this.x > w) this.vx *= -1; if (this.y < 0 || this.y > h) this.vy *= -1; }
+                draw() { ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                    ctx.fillStyle = this.c;
+                    ctx.globalAlpha = this.a;
+                    ctx.fill();
+                    ctx.globalAlpha = 1; } }
+            for (let i = 0; i < 60; i++) particles.push(new Particle());
+            function loop() { ctx.clearRect(0, 0, w, h); particles.forEach(p => { p.update();
+                    p.draw(); }); requestAnimationFrame(loop); }
+            loop();
+        })();
+        // ===== FAQ 手风琴 =====
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(function(item, index) {
+            const q = item.querySelector('.faq-question');
+            q.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    faqItems.forEach(function(i) { i.classList.remove('active'); });
+                    item.classList.add('active');
+                }
+            });
+        });
+        // 默认第一条展开（已在HTML中设置active类）
+        // ===== 滚动淡入 =====
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeEls.forEach(function(el) { observer.observe(el); });
+        // ===== Banner环形进度动画 =====
+        (function() {
+            const circle = document.querySelector('.ring-wrap circle:nth-of-type(2)');
+            if (circle) {
+                const len = 264;
+                const target = 66;
+                let current = 264;
+                const step = 2;
+                const timer = setInterval(function() {
+                    current -= step;
+                    if (current <= target) { current = target;
+                        clearInterval(timer); }
+                    circle.setAttribute('stroke-dashoffset', current);
+                }, 10);
+            }
+        })();
+    </script>
+    <!-- 结构化数据 JSON-LD -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [{
+                "@type": "FAQPage",
+                "mainEntity": [{
+                    "@type": "Question",
+                    "name": "《进击的巨人》中艾伦最后为何选择灭世？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "艾伦认为只有彻底清除岛外人类才能让帕拉迪岛获得真正的自由。他看到了未来的记忆碎片，发现自己被命运推向这一选择。灭世计划源于他对伙伴和家园的极端保护欲。艾伦与阿尔敏的价值观冲突体现了自由与和平的哲学对立。谏山创在访谈中确认这是一个悲剧性的必然结局。" }
+                }, {
+                    "@type": "Question",
+                    "name": "《鬼灭之刃》中无惨为何如此惧怕继国缘一？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "继国缘一是唯一让无惨感到死亡威胁的剑士。缘一的日之呼吸十三型具备克制无惨的特殊力量。缘一曾险些将无惨彻底斩杀，给无惨留下了心理阴影。缘一通过与赫刀的结合能真正伤及无惨的核心。无惨对缘一的恐惧导致他后续千年都在寻找打败其传承的方法。" }
+                }, {
+                    "@type": "Question",
+                    "name": "《咒术回战》中五条悟被封印的真相是什么？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "夏油杰（羂索）利用狱门疆设计了对五条悟的陷阱。五条悟在同学聚会时放松警惕，被突如其来的策略困住。伏黑甚尔的身体被羂索夺取，作为诱饵参与计划。封印的条件是五条悟被包围一分钟内无法逃脱。这一事件导致咒术高专战力大减，世界平衡被打破。" }
+                }, {
+                    "@type": "Question",
+                    "name": "《海贼王》中尼卡形态对路飞意味着什么？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "尼卡是传说中的太阳神，是解放与自由的象征。路飞的橡胶果实实际上是动物系人人果实幻兽种尼卡形态。觉醒后路飞拥有了更自由的攻击方式和强大的恢复能力。尼卡形态让路飞的解放理念得到了物理层面的体现。这一形态揭示了路飞与乔伊波伊之间的命运传承关系。" }
+                }, {
+                    "@type": "Question",
+                    "name": "《电锯人》中玛奇玛的真实目的是什么？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "玛奇玛的真实身份是支配之恶魔。她试图通过波奇塔构建一个没有死亡与悲伤的世界。她希望通过控制电锯恶魔来创造这样的理想社会。玛奇玛认为支配他人是带来和平的唯一途径。她的计划最终被电次和波奇塔的幸福之梦所击败。" }
+                }, {
+                    "@type": "Question",
+                    "name": "《葬送的芙莉莲》中勇者辛美尔为何没有求婚？",
+                    "acceptedAnswer": { "@type": "Answer", "text": "辛美尔深知精灵的寿命远超人类，不想让芙莉莲承受离别之痛。他在旅行中一直默默守护芙莉莲，认为自己不配拥有永恒。辛美尔最终在晚年表达了对芙莉莲的情感，但选择不给她束缚。这一决定反而成为了芙莉莲理解人类情感的重要契机。作品通过这段关系探讨了短暂与永恒之间的哲学命题。" }
+                }]
+            }, {
+                "@type": "VideoObject",
+                "name": "色色漫画精选视频合集",
+                "description": "《进击的巨人》深度解析、《鬼灭之刃》名场面、《咒术回战》高能合集等热门漫画视频。",
+                "thumbnailUrl": "https://example.com/video-thumb.jpg",
+                "uploadDate": "2026-01-10T08:00:00+08:00",
+                "publisher": { "@type": "Organization", "name": "色色漫画" }
+            }, {
+                "@type": "Article",
+                "headline": "色色漫画平台资讯中心",
+                "description": "漫画行业动态、新番前瞻、漫画家访谈、年度榜单等最新资讯。",
+                "author": { "@type": "Organization", "name": "色色漫画编辑部" },
+                "datePublished": "2026-01-18T09:00:00+08:00",
+                "publisher": { "@type": "Organization", "name": "色色漫画" }
+            }]
+        }
+    </script>
+</body>
+</html>
